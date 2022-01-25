@@ -28,7 +28,7 @@ namespace BlackJack.core
         /// <summary>
         /// Gives a card from the deck
         /// </summary>
-        /// <returns>a card</returns>
+        /// <returns>One card</returns>
         public Card GiveCard()
         {
             return Cards.Dequeue();

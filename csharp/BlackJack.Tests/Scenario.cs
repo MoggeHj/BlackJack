@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace BlackJack.Tests
+namespace BlackJack.core.Tests
 {
     [TestFixture]
     public abstract class Scenario

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using BlackJack.core.Interfaces;
 using Microsoft.Extensions.Logging;
 
-namespace BlackJack.core
+namespace BlackJack.core.Games
 {
     public class EuropeanBlackJack :BaseBlackJack, IGame
     {
@@ -17,6 +18,9 @@ namespace BlackJack.core
             Name = "EuropeanBlackJack";
         }
 
+        /// <summary>
+        /// Starts the game
+        /// </summary>
         public void Start()
         {
             RegisterPlayers();
@@ -47,7 +51,7 @@ namespace BlackJack.core
                     if (player.Status == Status.InGame)
                     {
                         Console.WriteLine("Player {0}: Stand or Hit", player.Name);
-                        string read = Console.ReadLine().ToLower();
+                        string read = Console.ReadLine()?.ToLower();
                         if (read == "hit")
                         {
                             var card = Deck.GiveCard();

@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using BlackJack.core;
 using BlackJack.core.Interfaces;
 
-namespace BlackJack.Tests
+namespace BlackJack.core.Tests
 {
     public class TestDataProvider
     {

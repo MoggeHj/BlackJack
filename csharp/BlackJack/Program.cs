@@ -1,5 +1,6 @@
 ﻿using System;
 using BlackJack.core;
+using BlackJack.core.Games;
 using BlackJack.core.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,7 +26,7 @@ namespace BlackJack
             }
             catch (Exception e)
             {
-                Console.WriteLine("Failed to start requested game");
+                Console.WriteLine("Failed to start the requested game");
                 throw;
             }
             

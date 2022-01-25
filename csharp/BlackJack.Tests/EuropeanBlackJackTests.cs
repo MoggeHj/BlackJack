@@ -1,14 +1,15 @@
-﻿using BlackJack.core;
+﻿using BlackJack.core.Games;
+using BlackJack.Tests;
 using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
 
-namespace BlackJack.Tests
+namespace BlackJack.core.Tests
 {
     public class EuropeanBlackJackTests : Scenario
     {
-        private TestDataProvider _testDataProvider;
-        private EuropeanBlackJack _europeanBlackJack;
+        private readonly TestDataProvider _testDataProvider;
+        private readonly EuropeanBlackJack _europeanBlackJack;
 
         public EuropeanBlackJackTests()
         {

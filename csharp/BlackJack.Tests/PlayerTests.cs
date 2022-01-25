@@ -1,8 +1,7 @@
-﻿using BlackJack.core;
-using BlackJack.core.Interfaces;
+﻿using BlackJack.core.Interfaces;
 using NUnit.Framework;
 
-namespace BlackJack.Tests
+namespace BlackJack.core.Tests
 {
     public class PlayerTests : Scenario
     {

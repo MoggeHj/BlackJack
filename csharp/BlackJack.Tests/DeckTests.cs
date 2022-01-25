@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using BlackJack.core;
+using BlackJack.core.Tests;
 using NUnit.Framework;
 
 namespace BlackJack.Tests

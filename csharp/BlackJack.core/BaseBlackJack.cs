@@ -64,7 +64,12 @@ namespace BlackJack.core
             }
         }
         
-
+        /// <summary>
+        /// Decides if the dealer or the player wins the game.
+        /// </summary>
+        /// <param name="dealer">Dealer</param>
+        /// <param name="player">Player</param>
+        /// <returns>The winner</returns>
         public virtual IPlayer GetWinner(IPlayer dealer, IPlayer player)
         {
             if (Bust(player)) return dealer;
@@ -75,6 +80,10 @@ namespace BlackJack.core
             return player;
         }
 
+        /// <summary>
+        /// Registers the players of the game
+        /// </summary>
+        /// <param name="players">players to register</param>
         public virtual void RegisterPlayers(IEnumerable<IPlayer> players)
         {
             Players.AddRange(players.ToList());
