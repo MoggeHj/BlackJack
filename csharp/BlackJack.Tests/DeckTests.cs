@@ -1,10 +1,10 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
+using BlackJack.core;
 using NUnit.Framework;
 
-namespace BlackJack.Tests.Given_Deck
+namespace BlackJack.Tests
 {
-    public class When_initialized : Scenario
+    public class DeckTests : Scenario
     {
         private Deck _deck;
         public override void When()

@@ -1,7 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using BlackJack.core;
+using BlackJack.core.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
 
 namespace BlackJack
 {
@@ -9,25 +11,25 @@ namespace BlackJack
     {
         static void Main(string[] args)
         {
-            var deck = new Deck();
-            var hand = new List<Card>();
+            var host = Host.CreateDefaultBuilder().ConfigureServices((context, services) =>
+                {
+                    services.AddSingleton<IGame, EuropeanBlackJack>();
+                    services.AddSingleton<IDeck, Deck>();
+                    services.AddSingleton<IGameFactory, GameFactory>();
+                }).Build();
 
-            while (true)
+            try
             {
-                Console.WriteLine("Stand, Hit");
-                string read = Console.ReadLine();
-                if (read == "Hit")
-                {
-                    var card = deck.Cards.Dequeue();
-                    hand.Add(card);
-                    var total = hand.Sum(x => Math.Min(x.Rank, 10));
-                    Console.WriteLine("Hit with {0} {1}. Total is {2}", card.Suit, card.Rank, total);
-                }
-                else if (read == "Stand")
-                {
-                    break;
-                }
+                var service = host.Services.GetService<IGameFactory>().Create("EuropeanBlackJack");
+                service.Start();
             }
+            catch (Exception e)
+            {
+                Console.WriteLine("Failed to start requested game");
+                throw;
+            }
+            
         }
-    }
+
+}
 }
