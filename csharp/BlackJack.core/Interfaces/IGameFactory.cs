@@ -2,6 +2,6 @@
 {
     public interface IGameFactory
     {
-        IGame Create(string game);
+        IGame GetGame(string game);
     }
 }

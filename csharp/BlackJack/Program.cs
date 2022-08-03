@@ -21,7 +21,7 @@ namespace BlackJack
 
             try
             {
-                var service = host.Services.GetService<IGameFactory>().Create("EuropeanBlackJack");
+                var service = host.Services.GetService<IGameFactory>().GetGame("EuropeanBlackJack");
                 service.Start();
             }
             catch (Exception e)

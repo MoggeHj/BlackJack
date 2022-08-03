@@ -1,5 +1,4 @@
 ﻿using BlackJack.core.Games;
-using BlackJack.Tests;
 using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;

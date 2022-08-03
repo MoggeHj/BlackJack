@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using BlackJack.core.Factories;
 using BlackJack.core.Interfaces;
 using Microsoft.Extensions.Logging;
 
 namespace BlackJack.core
 {
-    public class GameFactory : IGameFactory
+    public class GameFactory : GameProviderFactory
     {
         private readonly ILogger<GameFactory> _logger;
         private readonly List<IGame> _games;
@@ -17,13 +18,13 @@ namespace BlackJack.core
             _games = games.ToList();
         }
 
-        public IGame Create(string gameId)
+        public override IGame CreateGame(string game)
         {
             try
             {
-                if (_games.Find(x => x.Name == gameId) != null)
+                if (_games.Find(x => x.Name == game) != null)
                 {
-                    return _games.Find(x => x.Name == gameId);
+                    return _games.Find(x => x.Name == game);
                 }
 
                 return null;
@@ -34,6 +35,5 @@ namespace BlackJack.core
                 throw;
             }
         }
-
     }
-}
+    }
